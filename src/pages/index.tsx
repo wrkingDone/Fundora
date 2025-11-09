@@ -9,6 +9,7 @@ import Stats from "../components/stats"
 import Testimonials from "../components/testimonials"
 import CTA from "../components/cta"
 import Footer from "../components/footer"
+import AnimatedBackground from "../components/animated-background"
 
 export const metadata = {
   title: "Home",
@@ -28,17 +29,22 @@ export default function index() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-white">
-     
-      <Headers isScrolled={isScrolled} />
-      <title>Home | Fundora</title>
-      <Hero />
-      <Features />
-      <Stats />
-      <HowItWorks />
-      <Testimonials />
-      <CTA />
-      <Footer />
+    <main className="min-h-screen bg-gradient-to-b from-white via-purple-50/20 to-blue-50/20 relative overflow-hidden">
+      {/* Animated Background */}
+      <AnimatedBackground />
+      
+      {/* Content with relative z-index */}
+      <div className="relative z-10">
+        <Headers isScrolled={isScrolled} />
+        <title>Home | Fundora</title>
+        <Hero />
+        <Features />
+        <Stats />
+        <HowItWorks />
+        <Testimonials />
+        <CTA />
+        <Footer />
+      </div>
     </main>
   )
 }

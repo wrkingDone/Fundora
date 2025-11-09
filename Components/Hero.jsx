@@ -18,43 +18,33 @@ const Hero = ({ titleData, createCampaign }) => {
   };
 
   return (
-    <div className="relative">
-      <span className="coverLine"></span>
-      <img
-        src="https://images.pexels.com/photos/3228766/pexels-photo-3228766.jpeg?auto=compress&amp;cs=tunysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-        alt=""
-        className="absolute inset-0 object-cover w-full h-full"
-      />
-      <div className="relative bg-opacity-75 backgroundMain">
-        <svg
-          className="absolute inset-x-0 bottom-0 text-white"
-          viewBox="0 0 1160 163"
-        >
-          <path
-            fill="currentColor"
-            d="M-164 13L-104 39.7C-44 66 76 120 196 141C316 162 436 152 556 119.7C676 88 796 34 916 13C1036 -8 1156 2 1216 7.7L1276 13V162.5H1216C1156 162.5 1036 162.5 916 162.5C796 162.5 676 162.5 556 162.5C436 162.5 316 162.5 196 162.5C76 162.5 -44 162.5 -104 162.5H-164V13Z"
-          />
-        </svg>
-        <div className="relative px-4 py-16 mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600">
+      {/* Colorful animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-pink-400/30 via-purple-400/30 to-pink-500/30 rounded-full mix-blend-multiply filter blur-3xl animate-float-1" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-cyan-400/30 via-blue-400/30 to-blue-500/30 rounded-full mix-blend-multiply filter blur-3xl animate-float-2" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-br from-indigo-400/20 via-purple-400/20 to-pink-400/20 rounded-full mix-blend-multiply filter blur-3xl animate-pulse-slow" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:24px_24px] opacity-40 animate-grid-shift" />
+      </div>
+
+      <div className="relative px-4 py-16 mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 z-10">
           <div className="flex flex-col items-center justify-between xl:flex-row">
             <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
-              <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-5xl sm:leading-none">
+              <h2 className="max-w-lg mb-6 font-extrabold text-3xl tracking-tight sm:text-5xl sm:leading-none bg-gradient-to-r from-white via-pink-100 to-blue-100 bg-clip-text text-transparent animate-gradient-text">
                 Fundora <br className="hidden md:block" />
                 Crowd Funding FX
               </h2>
-              <p className="max-w-xl mb-4 text-base text-gray-200 md:text-lg">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s
+              <p className="max-w-xl mb-4 text-base text-white/90 md:text-lg font-medium">
+                Create and manage your crowdfunding campaigns with ease. Launch your project, set goals, and start raising funds on the Hedera network.
               </p>
               <a
                 href="/"
                 aria-label=""
-                className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700 text-gray-200"
+                className="inline-flex items-center font-semibold tracking-wider transition-all duration-200 text-white hover:text-pink-200 group"
               >
                 Learn More
                 <svg
-                  className="inline-block w-3 ml-2"
+                  className="inline-block w-3 ml-2 group-hover:translate-x-1 transition-transform"
                   fill="currentColor"
                   viewBox="0 0 12 12"
                 >
@@ -63,15 +53,15 @@ const Hero = ({ titleData, createCampaign }) => {
               </a>
             </div>
             <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
-              <div className="bg-white rounded shadow-2xl p-7 sm:p-10">
-                <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
-                  Campaign
+              <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-7 sm:p-10 border-2 border-white/20 hover:border-purple-300/50 transition-all">
+                <h3 className="mb-4 text-xl font-extrabold sm:text-center sm:mb-6 sm:text-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent">
+                  Create Campaign
                 </h3>
                 <form>
                   <div className="mb-1 sm:mb-2">
                     <label
                       htmlFor="firstName"
-                      className="inline-block mb-1 font-medium"
+                      className="inline-block mb-1 font-semibold text-gray-700"
                     >
                       Title
                     </label>
@@ -83,9 +73,9 @@ const Hero = ({ titleData, createCampaign }) => {
                           title: e.target.value,
                         })
                       }
-                      placeholder="title"
+                      placeholder="Enter campaign title"
                       required
-                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deeo-purple-accent-40 focus:outline-none focus:shadow-outline"
+                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border-2 border-gray-200 rounded-lg shadow-sm appearance-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 focus:outline-none"
                       id="firstName"
                       name="firstName"
                     />
@@ -93,7 +83,7 @@ const Hero = ({ titleData, createCampaign }) => {
                   <div className="mb-1 sm:mb-2">
                     <label
                       htmlFor="lastName"
-                      className="inline-block mb-1 font-medium"
+                      className="inline-block mb-1 font-semibold text-gray-700"
                     >
                       Description
                     </label>
@@ -105,9 +95,9 @@ const Hero = ({ titleData, createCampaign }) => {
                           description: e.target.value,
                         })
                       }
-                      placeholder="Description"
+                      placeholder="Enter campaign description"
                       required
-                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deeo-purple-accent-40 focus:outline-none focus:shadow-outline"
+                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border-2 border-gray-200 rounded-lg shadow-sm appearance-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 focus:outline-none"
                       id="lastName"
                       name="lastName"
                     />
@@ -115,9 +105,9 @@ const Hero = ({ titleData, createCampaign }) => {
                   <div className="mb-1 sm:mb-2">
                     <label
                       htmlFor="email"
-                      className="inline-block mb-1 font-medium"
+                      className="inline-block mb-1 font-semibold text-gray-700"
                     >
-                      Target Amount 
+                      Target Amount (HBAR)
                     </label>
                     <input
                       type="text"
@@ -127,55 +117,54 @@ const Hero = ({ titleData, createCampaign }) => {
                           amount: e.target.value,
                         })
                       }
-                      placeholder="amount"
+                      placeholder="Enter target amount"
                       required
-                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deeo-purple-accent-40 focus:outline-none focus:shadow-outline"
+                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border-2 border-gray-200 rounded-lg shadow-sm appearance-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 focus:outline-none"
                       id="email"
                       name="email"
                     />
-                    <div className="mb-1 sm:mb-2">
-                      <label
-                        htmlFor="email"
-                        className="inline-block mb-1 font-medium"
-                      >
-                        Target Date
-                      </label>
-                      <input
-                        type="date"
-                        onChange={(e) =>
-                          setCampaign({
-                            ...campaign,
-                            deadline: e.target.value,
-                          })
-                        }
-                        placeholder="date"
-                        required
-                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deeo-purple-accent-40 focus:outline-none focus:shadow-outline"
-                        id="email"
-                        name="email"
-                      />
-                    </div>
-                    <div className="mt-4 mb-2 sm:mb-4">
-                        <button 
-                            onClick={(e) => createNewCampaign(e)}
-                            type="submit"
-                            className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none newColor"
-                        >
-                            Create Campaign
-                        </button>
-                    </div>
-                    <p className="text-xs text-gray-600 sm:text-sm">
-                        Create your campaign to raise funds
-                    </p>
                   </div>
+                  <div className="mb-1 sm:mb-2">
+                    <label
+                      htmlFor="deadline"
+                      className="inline-block mb-1 font-semibold text-gray-700"
+                    >
+                      Target Date
+                    </label>
+                    <input
+                      type="date"
+                      onChange={(e) =>
+                        setCampaign({
+                          ...campaign,
+                          deadline: e.target.value,
+                        })
+                      }
+                      placeholder="Select deadline"
+                      required
+                      className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border-2 border-gray-200 rounded-lg shadow-sm appearance-none focus:border-purple-500 focus:ring-2 focus:ring-purple-200 focus:outline-none"
+                      id="deadline"
+                      name="deadline"
+                    />
+                  </div>
+                  <div className="mt-4 mb-2 sm:mb-4">
+                      <button 
+                          onClick={(e) => createNewCampaign(e)}
+                          type="submit"
+                          className="inline-flex items-center justify-center w-full h-12 px-6 font-bold tracking-wide text-white transition-all duration-200 rounded-lg shadow-lg bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 hover:from-purple-700 hover:via-pink-700 hover:to-blue-700 focus:shadow-outline focus:outline-none hover:scale-105 hover:shadow-xl hover:shadow-purple-500/50"
+                      >
+                          Create Campaign
+                      </button>
+                  </div>
+                  <p className="text-xs text-gray-600 sm:text-sm text-center font-medium">
+                      Create your campaign to raise funds on Hedera
+                  </p>
                 </form>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   );
-};
+}
 
 export default Hero;

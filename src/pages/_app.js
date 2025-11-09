@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { NavBar, Footer } from "../../Components";
 import { CrowdFundingProvider } from "../../Context/CrowdFunding"
 
-export const runtime = "edge";
+// export const runtime = "experimental-edge";
 
 export const metadata = {
   title: "Home",
