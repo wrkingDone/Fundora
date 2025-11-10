@@ -16,7 +16,7 @@ export const metadata = {
   description: "testing"
 }
 
-export default function index() {
+export default function Index() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {

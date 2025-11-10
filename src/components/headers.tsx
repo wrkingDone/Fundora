@@ -19,9 +19,10 @@ export default function Headers({ isScrolled }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
-    { label: "Landing", href: "#home" },
-    { label: "Create Campaign", href: "#create" },
-    { label: "Campaigns", href: "#campaigns" },
+    { label: "Landing", href: "/" },
+    { label: "Create Campaign", href: "/connect" },
+    { label: "Campaigns", href: "/connect" },
+    { label: "Token Engine", href: "/token-engine" },
     { label: "Learn", href: "#learn" },
     // { label: "Connect", href: "#connect" },
   ]
@@ -44,14 +45,25 @@ export default function Headers({ isScrolled }: HeaderProps) {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="text-gray-700 hover:text-purple-600 font-semibold transition-colors relative group"
-            >
-              {item.label}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 group-hover:w-full transition-all duration-300" />
-            </a>
+            item.href.startsWith("/") ? (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-gray-700 hover:text-purple-600 font-semibold transition-colors relative group"
+              >
+                {item.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 group-hover:w-full transition-all duration-300" />
+              </Link>
+            ) : (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-gray-700 hover:text-purple-600 font-semibold transition-colors relative group"
+              >
+                {item.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 group-hover:w-full transition-all duration-300" />
+              </a>
+            )
           ))}
         </div>
 
@@ -87,14 +99,25 @@ export default function Headers({ isScrolled }: HeaderProps) {
         <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-purple-100/50 animate-fade-in-up">
           <div className="px-4 py-4 space-y-3">
             {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="block px-4 py-2 text-gray-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 rounded-lg transition-all font-semibold hover:text-purple-600"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </a>
+              item.href.startsWith("/") ? (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="block px-4 py-2 text-gray-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 rounded-lg transition-all font-semibold hover:text-purple-600"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="block px-4 py-2 text-gray-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 rounded-lg transition-all font-semibold hover:text-purple-600"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </a>
+              )
             ))}
             <div className="pt-4 border-t border-purple-100/50 space-y-2">
               
