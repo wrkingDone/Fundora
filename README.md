@@ -91,18 +91,17 @@ To set up Fundora locally:
 
 ```bash
 # 1️⃣ Clone the Repository
-git clone https://github.com/your-username/fundora.git
+git clone https://github.com/Nailer/fundora.git
 cd fundora
 
 # 2️⃣ Install Dependencies
 npm install
 
 # 3️⃣ Start the Local Node (if applicable)
-npx adat-node2
+npx hardhat node
 
 # 4️⃣ Deploy the Smart Contract
-# (Replace with actual deployment command)
-npx deploy-deploy-deploy
+npx hardhat run --network localhost scripts/deploy.js
 
 # 5️⃣ Run the Frontend
 npm run dev
@@ -110,7 +109,7 @@ npm run dev
 💻 Usage Guide
 🔗 Connect Your Wallet
 
-Use HashPack or Adara Wallet to connect your Hedera account securely.
+Use Metamask Wallet to connect your Hedera account securely.
 
 🧾 Create a Campaign
 
