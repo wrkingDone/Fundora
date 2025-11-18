@@ -109,7 +109,7 @@ npm run dev
 💻 Usage Guide
 🔗 Connect Your Wallet
 
-Use Metamask Wallet to connect your Hedera account securely.
+Use Metamask  Wallet to connect your Hedera account securely.
 
 🧾 Create a Campaign
 
