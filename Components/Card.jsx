@@ -63,13 +63,13 @@ const Card = ({ allcampaign, setOpenModel, setDonate, title }) => {
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-semibold text-gray-600">Target:</span>
                     <span className="text-sm font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                      {campaign.target} HBAR
+                      Target: {campaign.target} PAS
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-sm font-semibold text-gray-600">Raised:</span>
                     <span className="text-sm font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                      {campaign.amountCollected} HBAR
+                      {campaign.amountCollected} PAS
                     </span>
                   </div>
                   {/* Progress bar */}

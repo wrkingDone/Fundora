@@ -85,7 +85,7 @@ const PopUp = ({ setOpenModel, donate, donateFunction, getDonations }) => {
                   {allDonationData?.map((donate, i) => (
                     <div key={i} className="p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg border border-purple-100">
                       <p className="text-gray-700 text-sm leading-relaxed">
-                        <span className="font-bold text-purple-600">{i + 1}.</span> {donate.donation} HBAR from{" "}
+                        <span className="font-bold text-purple-600">{i + 1}.</span> {donate.donation} PAS from{" "}
                         <span className="font-semibold text-gray-800">{donate.donator.slice(0, 35)}</span>
                       </p>
                     </div>

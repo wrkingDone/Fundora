@@ -1,5 +1,4 @@
 import crowdFunding from "./CrowdFunding.json"
 
-// Crowd Funding marketplace 
-export const CrowdFundingAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+export const CrowdFundingAddress = "<PASTE_YOUR_CONTRACT_ADDRESS_HERE>"; // Your freshly deployed Paseo Testnet Contract Address
 export const CrowdFundingABI = crowdFunding.abi;
