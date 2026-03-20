@@ -5,7 +5,7 @@ import { CrowdFundingContext } from "../Context/CrowdFunding";
 import { Logo, Menu } from "../Components/index"
 
 const NavBar = () => {
-  const { currentAccount, connectWallet } = useContext(CrowdFundingContext);
+  const { currentAccount, currentBalance, connectWallet } = useContext(CrowdFundingContext);
   const [ isMenuOpen, setIsMenuOpen ] = useState(false);
 
   const menuList = ["White Paper", "Project", "Donation", "Members"];
@@ -43,7 +43,7 @@ const NavBar = () => {
             <div className="border-gray-100 space-y-2">
               
               <button className="w-full px-4 py-2 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors">
-                {!currentAccount && (
+                {!currentAccount ? (
                   <ul className="flex items-center hidden space-x-8 lg:flex">
                     <li>
                       <p
@@ -54,6 +54,15 @@ const NavBar = () => {
                       >
                         Connect Wallet
                       </p>
+                    </li>
+                  </ul>
+                ) : (
+                  <ul className="flex items-center hidden space-x-8 lg:flex">
+                    <li>
+                      <div className="flex flex-col text-sm text-center">
+                        <span className="font-bold">{`${currentAccount.slice(0, 6)}...${currentAccount.slice(-4)}`}</span>
+                        {currentBalance && <span className="text-xs text-gray-300">{parseFloat(currentBalance).toFixed(4)} PAS</span>}
+                      </div>
                     </li>
                   </ul>
                 )}
@@ -117,14 +126,21 @@ const NavBar = () => {
                           </li>
                         ))}
                         <li>
-                          <a 
-                            href="/"
-                            class="inline-flex items-center background justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                            aria-label="Sign Up"
-                            title="Sign Up"
-                          >
-                            Connect Wallet
-                          </a>
+                          {!currentAccount ? (
+                            <button
+                              onClick={() => connectWallet()}
+                              class="inline-flex items-center background justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                              aria-label="Sign Up"
+                              title="Sign Up"
+                            >
+                              Connect Wallet
+                            </button>
+                          ) : (
+                            <div class="inline-flex flex-col items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400">
+                              <span>{`${currentAccount.slice(0, 6)}...${currentAccount.slice(-4)}`}</span>
+                              {currentBalance && <span class="text-sm">{parseFloat(currentBalance).toFixed(4)} PAS</span>}
+                            </div>
+                          )}
                         </li>
                       </ul>
                     </nav>

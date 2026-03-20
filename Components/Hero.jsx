@@ -35,7 +35,7 @@ const Hero = ({ titleData, createCampaign }) => {
                 Crowd Funding FX
               </h2>
               <p className="max-w-xl mb-4 text-base text-white/90 md:text-lg font-medium">
-                Create and manage your crowdfunding campaigns with ease. Launch your project, set goals, and start raising funds on the Hedera network.
+                Create and manage your crowdfunding campaigns with ease. Launch your project, set goals, and start raising funds on the Polkadot network.
               </p>
               <a
                 href="/"
@@ -107,7 +107,7 @@ const Hero = ({ titleData, createCampaign }) => {
                       htmlFor="email"
                       className="inline-block mb-1 font-semibold text-gray-700"
                     >
-                      Target Amount (HBAR)
+                      Target Amount (PAS)
                     </label>
                     <input
                       type="text"
@@ -156,7 +156,7 @@ const Hero = ({ titleData, createCampaign }) => {
                       </button>
                   </div>
                   <p className="text-xs text-gray-600 sm:text-sm text-center font-medium">
-                      Create your campaign to raise funds on Hedera
+                      Create your campaign to raise funds on Polkadot
                   </p>
                 </form>
               </div>

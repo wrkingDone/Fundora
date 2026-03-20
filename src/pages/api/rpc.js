@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
     try {
-      const response = await fetch(process.env.HEDERA_RPC_URL, {
+      const response = await fetch(process.env.POLKADOT_RPC_URL, {
         method: "POST",
         body: JSON.stringify(req.body),
         headers: {

@@ -7,23 +7,23 @@ const steps = [
   {
     number: "01",
     title: "Connect Your Wallet",
-    description: "Securely link your Hedera-compatible wallet to get started. This step lets you interact seamlessly with the Fundora.",
+    description: "Securely link your Polkadot-compatible wallet to get started. This step lets you interact seamlessly with the Fundora.",
   },
   {
     number: "02",
     title: "Enter Your Campaign Info",
-    description: "Launch your vision on-chain in minutes. Define your project goals, funding target, and duration — all securely stored and verifiable on the Hedera network.",
+    description: "Launch your vision on-chain in minutes. Define your project goals, funding target, and duration — all securely stored and verifiable on the Polkadot network.",
   },
   {
     number: "03",
     title: "Create Your Campaign",
     description:
-      "Deploy your campaign on the Hedera network with a single click.",
+      "Deploy your campaign on the Polkadot network with a single click.",
   },
   {
     number: "04",
-    title: "Sign Transaction on Hedera",
-    description: "Securely authorize your campaign or contribution using Hedera’s fast and low-cost consensus network.",
+    title: "Sign Transaction on Polkadot",
+    description: "Securely authorize your campaign or contribution using Polkadot’s fast and low-cost consensus network.",
   },
 ]
 

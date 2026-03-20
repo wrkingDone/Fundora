@@ -14,9 +14,9 @@ import {
   Award
 } from "lucide-react"
 import Headers from "../components/headers"
-import { createCreatorTokenMock } from "../../lib/hedera/hts"
-import { mintSupportNFTMock, generateMetadataURI } from "../../lib/hedera/nft"
-import { createMilestoneEngine, MilestoneEngine } from "../../lib/hedera/milestone"
+import { createCreatorTokenMock } from "../../lib/polkadot/hts"
+import { mintSupportNFTMock, generateMetadataURI } from "../../lib/polkadot/nft"
+import { createMilestoneEngine, MilestoneEngine } from "../../lib/polkadot/milestone"
 
 interface CreatorTokenForm {
   campaignName: string
@@ -472,7 +472,7 @@ export default function TokenEngine() {
                 <div className="space-y-1">
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-gray-600">Contribution</span>
-                    <span className="font-bold text-gray-900">{backer.contributionAmount} HBAR</span>
+                    <span className="font-bold text-gray-900">{backer.contributionAmount} PAS</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-gray-600">Tokens</span>
@@ -525,7 +525,7 @@ export default function TokenEngine() {
                         {backer.wallet.substring(0, 10)}...{backer.wallet.substring(34)}
                       </td>
                       <td className="py-3 px-4 font-semibold text-gray-900">
-                        {backer.contributionAmount} HBAR
+                        {backer.contributionAmount} PAS
                       </td>
                       <td className="py-3 px-4 font-semibold text-purple-600">
                         {backer.tokensReceived}

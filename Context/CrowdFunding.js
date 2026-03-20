@@ -17,28 +17,37 @@ export const CrowdFundingContext = React.createContext();
 export const CrowdFundingProvider = ({ children }) => {
   const titleData = "Crowd Funding Contract";
   const [currentAccount, setCurrentAccount] = useState("");
+  const [currentBalance, setCurrentBalance] = useState("");
 
   const createCampaign = async (campaign) => {
     const { title, description, amount, deadline } = campaign;
-    const web3Modal = new Web3Modal();
-    const connection = await web3Modal.connect();
-    const provider = new ethers.BrowserProvider(connection);
-    const signer = await provider.getSigner();
-    const contract = fetchContract(signer);
+    if (!title || !description || !amount || !deadline) {
+      console.log("Please fill all fields");
+      return;
+    }
 
-    console.log(currentAccount);
     try {
+      const web3Modal = new Web3Modal();
+      const connection = await web3Modal.connect();
+      const provider = new ethers.BrowserProvider(connection);
+      const signer = await provider.getSigner();
+      const contract = fetchContract(signer);
+      const signerAddress = await signer.getAddress(); // Reliably get connected address
+
+      // Convert millisecond JS Date to Seconds for Solidity block.timestamp
+      const deadlineInSeconds = Math.floor(new Date(deadline).getTime() / 1000);
+
       const transaction = await contract.createCampaign(
-        currentAccount, // owner
+        signerAddress, // owner
         title,
-        description, // description
+        description,
         ethers.parseUnits(amount, 18),
-        new Date(deadline).getTime()
+        deadlineInSeconds
       );
 
       await transaction.wait();
-
       console.log("Contract call success", transaction);
+      window.location.reload();
     } catch (error) {
       console.log("contract call failure", error);
     }
@@ -113,7 +122,7 @@ export const CrowdFundingProvider = ({ children }) => {
       });
 
       await campaignData.wait();
-      location.reload;
+      window.location.reload();
 
       return campaignData;
     } catch (error) {
@@ -153,6 +162,9 @@ export const CrowdFundingProvider = ({ children }) => {
 
       if (accounts.length) {
         setCurrentAccount(accounts[0]); // Auto-set if already connected
+        const provider = new ethers.BrowserProvider(window.ethereum);
+        const balance = await provider.getBalance(accounts[0]);
+        setCurrentBalance(ethers.formatEther(balance));
       } else {
         console.log("No Account Found");
       }
@@ -240,6 +252,9 @@ export const CrowdFundingProvider = ({ children }) => {
         method: "eth_requestAccounts",
       });
       setCurrentAccount(accounts[0]);
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const balance = await provider.getBalance(accounts[0]);
+      setCurrentBalance(ethers.formatEther(balance));
     } catch (err) {
       console.log("Error while connecting wallet:", err);
     }
@@ -250,11 +265,15 @@ export const CrowdFundingProvider = ({ children }) => {
 
     // Optional: Listen for account changes
     if (window.ethereum) {
-      window.ethereum.on("accountsChanged", (accounts) => {
+      window.ethereum.on("accountsChanged", async (accounts) => {
         if (accounts.length) {
           setCurrentAccount(accounts[0]);
+          const provider = new ethers.BrowserProvider(window.ethereum);
+          const balance = await provider.getBalance(accounts[0]);
+          setCurrentBalance(ethers.formatEther(balance));
         } else {
           setCurrentAccount("");
+          setCurrentBalance("");
         }
       });
     }
@@ -265,6 +284,7 @@ export const CrowdFundingProvider = ({ children }) => {
       value={{
         titleData,
         currentAccount,
+        currentBalance,
         createCampaign,
         getCampaigns,
         getUserCampaigns,

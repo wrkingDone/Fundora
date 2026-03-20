@@ -59,9 +59,9 @@ export default function Hero() {
                 sequence={[
                     "With Next-Gen Crowdfunding",
                     1500,
-                    "On Hedera 🚀",
+                    "On Polkadot 🚀",
                     1500,
-                    "With Next-Gen Crowdfunding On Hedera 🌍",
+                    "With Next-Gen Crowdfunding On Polkadot 🌍",
                     2000,
                 ]}
                 wrapper="span"
@@ -103,7 +103,7 @@ export default function Hero() {
           className={`grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto transition-all duration-700 delay-300 `}
         >
           <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-bold text-black mb-2">1M HBAR</div>
+            <div className="text-3xl sm:text-4xl font-bold text-black mb-2">1M PAS</div>
             <div className="text-sm text-gray-600">Expected Funds Raised</div>
           </div>
           <div className="text-center border-l border-r border-gray-200">

@@ -13,7 +13,7 @@ interface HeaderProps {
 
 export default function Headers({ isScrolled }: HeaderProps) {
 
-  const { currentAccount, connectWallet } = useContext(CrowdFundingContext);
+  const { currentAccount, currentBalance, connectWallet } = useContext(CrowdFundingContext);
   
 
   const [isOpen, setIsOpen] = useState(false)
@@ -71,8 +71,8 @@ export default function Headers({ isScrolled }: HeaderProps) {
         <div className="hidden md:flex items-center gap-4">
           {/* <button className="px-6 py-2 text-black font-medium hover:text-gray-700 transition-colors">Sign In</button> */}
           <button className="px-6 py-2 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white rounded-full font-semibold hover:from-purple-700 hover:via-pink-700 hover:to-blue-700 transition-all shadow-lg hover:shadow-xl hover:shadow-purple-500/50 hover:scale-105">
-            {!currentAccount && (
-              <ul className="flex items-center hidden space-x-8 lg:flex">
+            {!currentAccount ? (
+              <ul className="flex items-center space-x-8">
                 <li>
                   <p
                     onClick={() => connectWallet()}
@@ -84,6 +84,11 @@ export default function Headers({ isScrolled }: HeaderProps) {
                   </p>
                 </li>
               </ul>
+            ) : (
+              <div className="flex flex-col text-sm text-center">
+                <span className="font-bold">{`${currentAccount.slice(0, 6)}...${currentAccount.slice(-4)}`}</span>
+                {currentBalance && <span className="text-xs text-gray-200">{parseFloat(currentBalance).toFixed(4)} PAS</span>}
+              </div>
             )}
           </button>
         </div>
@@ -122,8 +127,8 @@ export default function Headers({ isScrolled }: HeaderProps) {
             <div className="pt-4 border-t border-purple-100/50 space-y-2">
               
               <button className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white rounded-lg font-semibold hover:from-purple-700 hover:via-pink-700 hover:to-blue-700 transition-all shadow-lg">
-                {!currentAccount && (
-                  <ul className="flex items-center hidden space-x-8 lg:flex">
+                {!currentAccount ? (
+                  <ul className="flex items-center justify-center space-x-8">
                     <li>
                       <p
                         onClick={() => connectWallet()}
@@ -135,6 +140,11 @@ export default function Headers({ isScrolled }: HeaderProps) {
                       </p>
                     </li>
                   </ul>
+                ) : (
+                  <div className="flex flex-col items-center justify-center text-sm text-center">
+                    <span className="font-bold">{`${currentAccount.slice(0, 6)}...${currentAccount.slice(-4)}`}</span>
+                    {currentBalance && <span className="text-xs text-gray-200">{parseFloat(currentBalance).toFixed(4)} PAS</span>}
+                  </div>
                 )}
               </button>
             </div>
